@@ -1,21 +1,73 @@
-MIT License
+Copyright © 2026 Lakshmikantha R K.
 
-Copyright (c) 2026 Lakshmikantha R K
+ALL RIGHTS RESERVED.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## 1. Purpose of This Repository
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This repository is made publicly available primarily for portfolio presentation, academic demonstration, recruitment evaluation, technical review, and educational discussion.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Public availability of the source code does not constitute an open-source release and does not grant a general license to use the Software.
+
+## 2. Ownership
+
+Copyright is claimed only in original material contained in this repository to the extent that such material is lawfully owned by Lakshmikantha R K.
+
+Nothing in this notice asserts ownership over:
+
+- third-party software, libraries, frameworks, packages, or dependencies;
+- third-party datasets or other externally sourced data;
+- trademarks or other intellectual property belonging to third parties;
+- materials whose ownership may belong to an employer, internship provider, educational institution, client, collaborator, or other rights holder; or
+- any material otherwise governed by separate contractual or licensing terms.
+
+Such materials remain subject to their respective ownership rights, licenses, agreements, and applicable law.
+
+## 3. No General License Granted
+
+Except for the limited rights necessarily provided by the platform on which this repository is hosted, no license or permission is granted to any person or organization to reproduce, modify, distribute, publish, sublicense, sell, commercially exploit, deploy, host, incorporate, or create derivative works from original material in this repository.
+
+Any use beyond viewing the repository for evaluation, review, or educational reference requires prior written permission from the applicable rights holder.
+
+## 4. Commercial Use
+
+No commercial rights are granted.
+
+Prior written authorization is required before using original material from this repository in or for:
+
+- a commercial product or service;
+- software-as-a-service or hosted services;
+- internal business operations;
+- consulting or professional services;
+- paid academic or training products;
+- commercial machine-learning systems;
+- commercial APIs;
+- resale, sublicensing, or redistribution; or
+- any other revenue-generating activity.
+
+Commercial licensing, collaboration, acquisition, or other arrangements may be discussed separately with the repository owner.
+
+## 5. No Authorization for Real-World Lending Decisions
+
+This project is an educational and portfolio demonstration.
+
+It is NOT a banking system, underwriting system, credit bureau product, financial advisory service, or production credit-decision system.
+
+The models, predictions, scores, simulations, recommendations, dashboards, thresholds, examples, and analytical outputs contained in this repository must not be relied upon to approve, reject, price, underwrite, service, or otherwise make real-world decisions concerning credit, lending, financial eligibility, or any individual's financial rights or opportunities.
+
+Any person or organization considering such use is solely responsible for obtaining appropriate professional, legal, regulatory, compliance, security, fairness, validation, and risk-management review before doing so.
+
+## 6. No Professional Advice
+
+Nothing in this repository constitutes financial, legal, compliance, investment, lending, banking, accounting, risk-management, or other professional advice.
+
+All outputs are provided solely for educational, technical, analytical, and demonstration purposes.
+
+## 7. Data
+
+The repository must not be interpreted as representing real customers or actual lending operations unless explicitly stated.
+
+Third-party datasets remain subject to their original licenses, terms, ownership rights, and usage restrictions.
+
+Any simulated, generated, derived, anonymized, or demonstration data is provided only for project demonstration.
+
+The repository owner makes no representation that any dataset is appropriate for production
