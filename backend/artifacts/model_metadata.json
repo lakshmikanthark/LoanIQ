@@ -1,0 +1,20 @@
+{
+  "project": "Loan Approval Project - Explainable Loan Approval Intelligence",
+  "model_version": "2026.09.25.1",
+  "champion_model": "XGBoost",
+  "challenger_model": "Logistic Regression",
+  "decision_threshold": 0.5,
+  "training_rows": 614,
+  "positive_class": "Loan_Status=Y (approval)",
+  "dataset_sha256": "0598e95f5e16956126248c7707f17c635926af5a551ebbf7e64cc676ada059e6",
+  "random_state": 42,
+  "sensitive_feature_policy": "Gender is excluded from prediction features and retained only for post-hoc fairness auditing.",
+  "engineered_features": [
+    "TotalIncome",
+    "LogTotalIncome",
+    "LogLoanAmount",
+    "LoanToAnnualIncome",
+    "MonthlyPrincipalProxy"
+  ],
+  "generated_at_utc": "2026-09-25T20:26:31.290895+00:00"
+}

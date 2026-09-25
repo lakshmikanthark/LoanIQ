@@ -1,0 +1,106 @@
+{
+  "selection_metric": "mean ROC-AUC across repeated stratified cross-validation",
+  "cross_validation": "5 folds x 1 repeats",
+  "benchmark": [
+    {
+      "model": "XGBoost",
+      "accuracy": 0.807824,
+      "accuracy_std": 0.014083,
+      "balanced_accuracy": 0.724287,
+      "balanced_accuracy_std": 0.024328,
+      "roc_auc": 0.785591,
+      "roc_auc_std": 0.032017,
+      "f1_approved": 0.871529,
+      "f1_approved_std": 0.008293,
+      "rejection_recall": 0.500675,
+      "rejection_recall_std": 0.058564,
+      "approval_recall": 0.947899,
+      "approval_recall_std": 0.014149
+    },
+    {
+      "model": "Gradient Boosting",
+      "accuracy": 0.80785,
+      "accuracy_std": 0.018656,
+      "balanced_accuracy": 0.721391,
+      "balanced_accuracy_std": 0.026393,
+      "roc_auc": 0.782858,
+      "roc_auc_std": 0.006322,
+      "f1_approved": 0.872076,
+      "f1_approved_std": 0.011852,
+      "rejection_recall": 0.490148,
+      "rejection_recall_std": 0.055282,
+      "approval_recall": 0.952633,
+      "approval_recall_std": 0.01666
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.804572,
+      "accuracy_std": 0.016918,
+      "balanced_accuracy": 0.727496,
+      "balanced_accuracy_std": 0.020416,
+      "roc_auc": 0.777742,
+      "roc_auc_std": 0.031252,
+      "f1_approved": 0.867825,
+      "f1_approved_std": 0.011608,
+      "rejection_recall": 0.521323,
+      "rejection_recall_std": 0.039193,
+      "approval_recall": 0.933669,
+      "approval_recall_std": 0.017695
+    },
+    {
+      "model": "RBF SVM",
+      "accuracy": 0.786712,
+      "accuracy_std": 0.034691,
+      "balanced_accuracy": 0.711668,
+      "balanced_accuracy_std": 0.043294,
+      "roc_auc": 0.774174,
+      "roc_auc_std": 0.039045,
+      "f1_approved": 0.854706,
+      "f1_approved_std": 0.023377,
+      "rejection_recall": 0.511066,
+      "rejection_recall_std": 0.07157,
+      "approval_recall": 0.912269,
+      "approval_recall_std": 0.022253
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.806224,
+      "accuracy_std": 0.023524,
+      "balanced_accuracy": 0.711647,
+      "balanced_accuracy_std": 0.026293,
+      "roc_auc": 0.755182,
+      "roc_auc_std": 0.029695,
+      "f1_approved": 0.872416,
+      "f1_approved_std": 0.016016,
+      "rejection_recall": 0.458839,
+      "rejection_recall_std": 0.044078,
+      "approval_recall": 0.964454,
+      "approval_recall_std": 0.021266
+    }
+  ],
+  "out_of_fold_champion": {
+    "method": "5-fold out-of-fold predictions",
+    "accuracy": 0.807818,
+    "balanced_accuracy": 0.723934,
+    "roc_auc": 0.785175,
+    "precision_approved": 0.806452,
+    "recall_approved": 0.947867,
+    "recall_rejected": 0.5,
+    "f1_approved": 0.87146,
+    "confusion_matrix": [
+      [
+        96,
+        96
+      ],
+      [
+        22,
+        400
+      ]
+    ]
+  },
+  "class_balance": {
+    "approved": 422,
+    "rejected": 192,
+    "approval_rate": 0.687296
+  }
+}

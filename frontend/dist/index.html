@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Loan Approval Prediction & Business Analysis — a Data Science internship project for loan approval prediction and business analysis." />
+  <title>Loan Approval Prediction & Business Analysis | Data Science Internship Project</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">LP</div>
+        <div><strong>Loan Approval Project</strong><span>Business Analysis</span></div>
+      </div>
+      <div class="sim-pill"><i></i><span>Project simulation</span></div>
+      <nav class="side-nav" aria-label="Primary navigation">
+        <button class="active" data-page="command"><span>⌂</span><b>Project Dashboard</b></button>
+        <button data-page="policy"><span>◈</span><b>Policy Analysis</b></button>
+        <button data-page="queue"><span>☷</span><b>Review Queue</b></button>
+        <button data-page="segments"><span>▦</span><b>Segment Analysis</b></button>
+        <button data-page="score"><span>◎</span><b>Loan Prediction</b></button>
+        <button data-page="model"><span>∿</span><b>Model Performance</b></button>
+        <button data-page="story"><span>↗</span><b>Project Overview</b></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <a href="/docs" target="_blank" rel="noreferrer">OpenAPI docs ↗</a>
+        <p>Educational internship project. Not for real underwriting.</p>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow" id="pageEyebrow">Loan approval analytics</span>
+          <h1 id="pageName">Project Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <div id="apiState" class="api-state"><i></i><span>Connecting</span></div>
+          <button class="ghost" id="refreshBtn">Refresh</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="page-command" class="page active">
+          <div class="hero-grid">
+            <div class="hero-copy panel dark-panel">
+              <span class="hero-kicker">From prediction → business analysis</span>
+              <h2>Analyze loan applications beyond a single prediction.</h2>
+              <p>Loan Approval Project combines model scores with staffing, routing, policy and bottleneck analysis. It helps answer practical questions such as: <em>what should we automate, what needs a human, where is the queue breaking, and what changes if demand spikes?</em></p>
+              <div class="hero-tags"><span>Policy optimization</span><span>Capacity planning</span><span>Segment analysis</span><span>Application details</span></div>
+            </div>
+            <div class="panel problem-card">
+              <span class="eyebrow">Business problem</span>
+              <h3>Approval teams lose time in the gray zone.</h3>
+              <p>Blanket manual review is slow. Aggressive automation can create inconsistent decisions. The analysis module manages that trade-off with confidence thresholds, analyst capacity and historical-agreement guardrails.</p>
+              <div class="problem-flow"><span>Applications</span><b>→</b><span>Prediction</span><b>→</b><span>Human queue</span><b>→</b><span>SLA</span></div>
+            </div>
+          </div>
+
+          <div id="commandKpis" class="kpi-grid skeleton-grid"></div>
+
+          <div class="grid-2 command-middle">
+            <section class="panel">
+              <div class="panel-head"><div><span class="eyebrow">Analysis summary</span><h3>What needs attention</h3></div><span class="live-badge">auto-generated</span></div>
+              <div id="executiveBrief" class="brief-list loading-lines"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><span class="eyebrow">Loan processing funnel</span><h3>Where work accumulates</h3></div></div>
+              <div id="funnel" class="funnel loading-lines"></div>
+            </section>
+          </div>
+
+          <div class="grid-2">
+            <section class="panel">
+              <div class="panel-head"><div><span class="eyebrow">42-day operating trend</span><h3>Demand vs manual review</h3></div><span class="muted-note">synthetic ops timeline</span></div>
+              <div id="trendChart" class="chart-stage"></div>
+              <div class="chart-legend"><span><i class="dot applications"></i>Applications</span><span><i class="dot manual"></i>Manual review rate</span></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><span class="eyebrow">Improvement areas</span><h3>Where operations can improve</h3></div><button class="link-btn" data-go="segments">See root causes →</button></div>
+              <div id="opportunityList" class="opportunity-list loading-lines"></div>
+            </section>
+          </div>
+
+          <section class="panel disclaimer-panel">
+            <strong>Data note:</strong>
+            <span>The 614 applicant records and historical approval labels are source data. Channel, timestamps, analyst assignment, processing time and SLA are a deterministic simulation layer built only to demonstrate Business Analytics and Operations analysis. Approval probability is not default risk.</span>
+          </section>
+        </section>
+
+        <section id="page-policy" class="page">
+          <div class="page-intro">
+            <div><span class="eyebrow">Policy & capacity simulator</span><h2>Change the operating policy. See the business consequence instantly.</h2><p>Thresholds control which applications are auto-approved, auto-rejected or routed to a human. Staffing and demand assumptions show whether the queue can actually support that policy.</p></div>
+            <button id="optimizePolicyBtn" class="primary">Find best policy</button>
+          </div>
+
+          <div class="policy-layout">
+            <section class="panel controls-panel">
+              <div class="panel-head"><div><span class="eyebrow">Scenario inputs</span><h3>Decision policy</h3></div></div>
+              <label class="range-field"><div><span>Auto-approve threshold</span><strong id="approveThresholdLabel">75%</strong></div><input id="approveThreshold" type="range" min="55" max="95" value="75" step="1" /></label>
+              <label class="range-field"><div><span>Auto-reject threshold</span><strong id="rejectThresholdLabel">25%</strong></div><input id="rejectThreshold" type="range" min="5" max="45" value="25" step="1" /></label>
+              <div class="mini-grid">
+                <label><span>Analysts</span><input id="analystsInput" type="number" min="1" max="500" value="1" /></label>
+                <label><span>Productive hrs/day</span><input id="productiveHoursInput" type="number" min="1" max="12" step="0.5" value="6" /></label>
+              </div>
+              <label class="range-field"><div><span>Demand multiplier</span><strong id="volumeLabel">1.0×</strong></div><input id="volumeMultiplier" type="range" min="50" max="300" value="100" step="10" /></label>
+              <label class="range-field"><div><span>Optimizer guardrail</span><strong id="agreementLabel">90%</strong></div><input id="agreementGuardrail" type="range" min="80" max="98" value="90" step="1" /></label>
+              <button id="runScenarioBtn" class="secondary full">Run scenario</button>
+              <p class="microcopy">“Agreement” compares automated decisions with historical approval labels. It is not a repayment/default metric.</p>
+            </section>
+
+            <section class="panel scenario-panel">
+              <div class="panel-head"><div><span class="eyebrow">Scenario output</span><h3>Automation ↔ human review trade-off</h3></div><span id="capacityBadge" class="status-badge">—</span></div>
+              <div id="scenarioKpis" class="scenario-kpis"></div>
+              <div class="decision-mix" id="decisionMix"></div>
+              <div class="capacity-meter"><div><span>Team capacity utilization</span><strong id="capacityLabel">—</strong></div><div class="meter"><i id="capacityBar"></i></div><small id="capacityNote"></small></div>
+            </section>
+          </div>
+
+          <div class="grid-2">
+            <section class="panel">
+              <div class="panel-head"><div><span class="eyebrow">Policy benchmark</span><h3>Baseline vs current vs optimized</h3></div></div>
+              <div class="table-wrap"><table><thead><tr><th>Policy</th><th>Automation</th><th>Agreement</th><th>Manual</th><th>Hours saved</th></tr></thead><tbody id="policyCompareRows"></tbody></table></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><span class="eyebrow">Demand stress test</span><h3>When does the queue break?</h3></div></div>
+              <div id="stressGrid" class="stress-grid"></div>
+            </section>
+          </div>
+
+          <div id="optimizerCallout" class="panel optimizer-callout hidden"></div>
+        </section>
+
+        <section id="page-queue" class="page">
+          <div class="page-intro">
+            <div><span class="eyebrow">Manual review analysis</span><h2>Prioritize the cases where analyst attention matters most.</h2><p>The queue ranks ambiguous applications using decision uncertainty, SLA pressure, document friction and loan value—so the team works the highest-impact cases first.</p></div>
+            <div class="queue-stat"><strong id="queueCount">—</strong><span>cases shown</span></div>
+          </div>
+          <section class="panel">
+            <div class="queue-tools">
+              <input id="queueSearch" type="search" placeholder="Search application, channel, reason…" />
+              <select id="queuePriorityFilter"><option value="all">All priorities</option><option value="high">Priority ≥70</option><option value="sla">SLA breach</option><option value="docs">Document friction</option></select>
+            </div>
+            <div class="table-wrap queue-table"><table><thead><tr><th>Priority</th><th>Application</th><th>Why now</th><th>Probability</th><th>Loan value</th><th>Channel</th><th>Docs</th><th>Age/TAT</th><th></th></tr></thead><tbody id="queueRows"></tbody></table></div>
+          </section>
+        </section>
+
+        <section id="page-segments" class="page">
+          <div class="page-intro">
+            <div><span class="eyebrow">Segment analysis</span><h2>Find the segment creating the operational problem.</h2><p>Volume alone is not enough. Business Analysis combines scale, manual-review intensity, processing time, SLA breaches and document quality to surface addressable bottlenecks.</p></div>
+            <label class="dimension-select"><span>Analyze by</span><select id="segmentDimension"><option value="channel">Acquisition channel</option><option value="property_area">Property area</option><option value="education">Education</option><option value="self_employed">Employment type</option><option value="credit_history">Credit history</option></select></label>
+          </div>
+          <div id="rootCauseCards" class="root-cause-cards"></div>
+          <section class="panel">
+            <div class="panel-head"><div><span class="eyebrow">Segment scorecard</span><h3>Compare the operating burden</h3></div></div>
+            <div class="table-wrap"><table><thead><tr><th>Segment</th><th>Apps</th><th>Manual</th><th>Avg TAT</th><th>SLA breach</th><th>Docs</th><th>Hist. approval</th><th>Auto agreement</th></tr></thead><tbody id="segmentRows"></tbody></table></div>
+          </section>
+          <div class="grid-2">
+            <section class="panel"><div class="panel-head"><div><span class="eyebrow">Data quality</span><h3>Can we trust the source?</h3></div></div><div id="qualityPanel"></div></section>
+            <section class="panel"><div class="panel-head"><div><span class="eyebrow">Analyst interpretation</span><h3>What this suggests</h3></div></div><div id="segmentNarrative" class="brief-list"></div></section>
+          </div>
+        </section>
+
+        <section id="page-score" class="page">
+          <div class="page-intro">
+            <div><span class="eyebrow">Loan approval prediction</span><h2>Predict a single applicant and inspect the model evidence.</h2><p>Use the enhanced CIBIL/assets model when trained, or the preserved internship baseline. This preserves the original internship prediction workflow while the other modules extend it with business analysis.</p></div>
+            <div class="segmented"><button id="enhancedMode" data-mode="enhanced">Enhanced v2</button><button id="legacyMode" class="active" data-mode="legacy">Legacy v1</button></div>
+          </div>
+          <div id="setupBanner" class="setup-banner hidden"><strong>Enhanced model not trained.</strong><span>Run <code>python backend/scripts/bootstrap_enhanced.py --quality max</code> to unlock the 4,269-row CIBIL/assets ensemble.</span></div>
+          <div class="score-layout">
+            <form id="enhancedForm" class="panel form-panel hidden">
+              <div class="panel-head"><div><span class="eyebrow">Enhanced application</span><h3>CIBIL + assets</h3></div><span class="tag">v2</span></div>
+              <div class="form-grid">
+                <label><span>CIBIL score</span><input name="cibil_score" type="number" min="300" max="900" value="760" required /></label>
+                <label><span>Annual income</span><input name="income_annum" type="number" min="1" value="6500000" required /></label>
+                <label><span>Loan amount</span><input name="loan_amount" type="number" min="1" value="16000000" required /></label>
+                <label><span>Loan term</span><input name="loan_term" type="number" min="1" max="40" value="10" required /></label>
+                <label><span>Dependents</span><input name="no_of_dependents" type="number" min="0" max="10" value="1" required /></label>
+                <label><span>Education</span><select name="education"><option>Graduate</option><option>Not Graduate</option></select></label>
+                <label><span>Self-employed</span><select name="self_employed"><option>No</option><option>Yes</option></select></label>
+                <label><span>Residential assets</span><input name="residential_assets_value" type="number" min="0" value="12000000" required /></label>
+                <label><span>Commercial assets</span><input name="commercial_assets_value" type="number" min="0" value="5000000" required /></label>
+                <label><span>Luxury assets</span><input name="luxury_assets_value" type="number" min="0" value="18000000" required /></label>
+                <label><span>Bank assets</span><input name="bank_asset_value" type="number" min="0" value="6500000" required /></label>
+              </div>
+              <p id="enhancedError" class="error hidden"></p><button id="enhancedSubmit" class="primary full" type="submit">Run enhanced model</button>
+            </form>
+            <form id="legacyForm" class="panel form-panel">
+              <div class="panel-head"><div><span class="eyebrow">Internship baseline</span><h3>Original feature set</h3></div><span class="tag muted">v1</span></div>
+              <div class="form-grid">
+                <label><span>Credit history</span><select name="credit_history"><option value="1">Good / present</option><option value="0">No / poor</option></select></label>
+                <label><span>Applicant income</span><input name="applicant_income" type="number" min="0" value="5000" /></label>
+                <label><span>Co-applicant income</span><input name="coapplicant_income" type="number" min="0" value="1500" /></label>
+                <label><span>Loan amount</span><input name="loan_amount" type="number" min="1" value="140" /><small>thousands</small></label>
+                <label><span>Loan term</span><input name="loan_amount_term" type="number" min="1" value="360" /><small>months</small></label>
+                <label><span>Married</span><select name="married"><option>Yes</option><option>No</option></select></label>
+                <label><span>Dependents</span><select name="dependents"><option>0</option><option>1</option><option>2</option><option>3+</option></select></label>
+                <label><span>Education</span><select name="education"><option>Graduate</option><option>Not Graduate</option></select></label>
+                <label><span>Self-employed</span><select name="self_employed"><option>No</option><option>Yes</option></select></label>
+                <label><span>Property area</span><select name="property_area"><option>Urban</option><option>Semiurban</option><option>Rural</option></select></label>
+              </div>
+              <p id="legacyError" class="error hidden"></p><button class="primary full" type="submit">Run baseline model</button>
+            </form>
+            <section id="scoreResult" class="panel result-panel empty"><div class="empty-state"><div>◎</div><h3>Ready to score</h3><p>Prediction evidence and model explanation will appear here.</p></div></section>
+          </div>
+        </section>
+
+        <section id="page-model" class="page">
+          <div class="page-intro"><div><span class="eyebrow">Model evaluation</span><h2>Evidence before claims.</h2><p>Evaluation metrics are loaded from versioned artifacts. Enhanced performance is shown only after the real 4,269-row dataset has been trained.</p></div></div>
+          <div id="modelMetrics" class="kpi-grid"></div>
+          <div class="grid-2">
+            <section class="panel"><div class="panel-head"><div><span class="eyebrow">Candidate models</span><h3>Cross-validation leaderboard</h3></div></div><div class="table-wrap"><table><thead><tr><th>Model</th><th>Accuracy</th><th>ROC-AUC</th><th>Balanced acc.</th></tr></thead><tbody id="modelRows"></tbody></table></div></section>
+            <section class="panel"><div class="panel-head"><div><span class="eyebrow">Interpretability</span><h3>Feature importance</h3></div></div><div id="importanceList" class="importance-list"></div></section>
+          </div>
+          <section class="panel"><span class="eyebrow">Evaluation protocol</span><h3>No test-set shopping.</h3><p id="modelProtocol"></p></section>
+        </section>
+
+        <section id="page-story" class="page">
+          <div class="story-hero panel dark-panel">
+            <span class="hero-kicker">Project background</span>
+            <h2>The project started as a college loan-classification project and was later extended with stronger modeling and business analysis.</h2>
+            <p>The project demonstrates both model development and how analytics can support loan-review decisions, staffing scenarios, prioritization and bottleneck analysis.</p>
+          </div>
+          <div class="story-grid">
+            <article class="panel"><span class="story-no">01</span><h3>Internship foundation</h3><p>Cleaned and modeled a public loan-approval dataset, compared multiple classifiers, selected a model and shipped a Tkinter prediction interface.</p></article>
+            <article class="panel"><span class="story-no">02</span><h3>ML engineering rebuild</h3><p>Leakage-safe pipelines, stronger evaluation, explainability, FastAPI, tests, model artifacts, a second high-capacity dataset path and documented provenance.</p></article>
+            <article class="panel accent-panel"><span class="story-no">03</span><h3>Business Analysis extension</h3><p>Turned prediction into policy optimization, analyst-capacity planning, queue prioritization, SLA analytics, root-cause segmentation, audit drill-downs and management summary.</p></article>
+          </div>
+          <section class="panel value-map">
+            <div class="panel-head"><div><span class="eyebrow">What this demonstrates to an employer</span><h3>Business Analytics + Business Operations skills</h3></div></div>
+            <div class="skill-grid"><div><strong>Problem framing</strong><span>Converted a model output into an operating decision system.</span></div><div><strong>KPI design</strong><span>Automation, manual-review rate, SLA, capacity utilization, backlog and agreement guardrails.</span></div><div><strong>Trade-off analysis</strong><span>Policy thresholds vs human workload vs decision consistency.</span></div><div><strong>Segment analysis</strong><span>Segment scorecards expose where friction concentrates.</span></div><div><strong>Operations planning</strong><span>Demand multipliers, staffing scenarios and queue pressure.</span></div><div><strong>Data governance</strong><span>Source quality, simulated-field disclosure and decision audit trails.</span></div></div>
+          </section>
+          <section class="panel resume-callout"><span class="eyebrow">One-line project pitch</span><h3>“Built a loan approval prediction and business analysis project that combines machine learning with policy simulation, review prioritization, staffing analysis, SLA/backlog forecasting and segment analysis.”</h3></section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="caseDrawer" class="drawer-backdrop hidden">
+    <aside class="drawer"><button id="closeDrawer" class="drawer-close">×</button><div id="caseDrawerBody"></div></aside>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

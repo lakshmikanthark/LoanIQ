@@ -1,0 +1,77 @@
+[
+  {
+    "feature": "Credit_History",
+    "importance": 0.44122619926929474,
+    "share": 0.4412262050222297
+  },
+  {
+    "feature": "Dependents",
+    "importance": 0.09149988554418087,
+    "share": 0.0914998867372036
+  },
+  {
+    "feature": "Married",
+    "importance": 0.07974879071116447,
+    "share": 0.07974879175097037
+  },
+  {
+    "feature": "Property_Area",
+    "importance": 0.07845813222229481,
+    "share": 0.07845813324527244
+  },
+  {
+    "feature": "Education",
+    "importance": 0.04638169705867767,
+    "share": 0.04638169766342618
+  },
+  {
+    "feature": "LoanToAnnualIncome",
+    "importance": 0.04051067680120468,
+    "share": 0.0405106773294038
+  },
+  {
+    "feature": "TotalIncome",
+    "importance": 0.028256108984351158,
+    "share": 0.028256109352768892
+  },
+  {
+    "feature": "LogTotalIncome",
+    "importance": 0.027231348678469658,
+    "share": 0.027231349033526038
+  },
+  {
+    "feature": "CoapplicantIncome",
+    "importance": 0.02553871087729931,
+    "share": 0.025538711210286204
+  },
+  {
+    "feature": "LoanAmount",
+    "importance": 0.02502288855612278,
+    "share": 0.025022888882384117
+  },
+  {
+    "feature": "MonthlyPrincipalProxy",
+    "importance": 0.024907143786549568,
+    "share": 0.024907144111301766
+  },
+  {
+    "feature": "ApplicantIncome",
+    "importance": 0.024593830108642578,
+    "share": 0.02459383042930963
+  },
+  {
+    "feature": "Loan_Amount_Term",
+    "importance": 0.022964995354413986,
+    "share": 0.02296499565384345
+  },
+  {
+    "feature": "Self_Employed",
+    "importance": 0.022449173033237457,
+    "share": 0.022449173325941364
+  },
+  {
+    "feature": "LogLoanAmount",
+    "importance": 0.021210405975580215,
+    "share": 0.021210406252132438
+  }
+]

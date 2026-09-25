@@ -1,0 +1,102 @@
+{
+  "method": "5-fold out-of-fold predictions using the champion model",
+  "gender_is_prediction_feature": false,
+  "summary": {
+    "groups_compared": [
+      "Female",
+      "Male"
+    ],
+    "demographic_parity_difference": 0.094033,
+    "equal_opportunity_difference": 0.049085,
+    "rejection_recall_difference": 0.154955
+  },
+  "slices": {
+    "Gender": [
+      {
+        "group": "Female",
+        "n": 112,
+        "actual_approval_rate": 0.669643,
+        "predicted_approval_rate": 0.732143,
+        "mean_predicted_probability": 0.653616,
+        "balanced_accuracy": 0.764144,
+        "approval_recall": 0.906667,
+        "rejection_recall": 0.621622
+      },
+      {
+        "group": "Male",
+        "n": 489,
+        "actual_approval_rate": 0.693252,
+        "predicted_approval_rate": 0.826176,
+        "mean_predicted_probability": 0.709413,
+        "balanced_accuracy": 0.711209,
+        "approval_recall": 0.955752,
+        "rejection_recall": 0.466667
+      },
+      {
+        "group": "Missing",
+        "n": 13,
+        "actual_approval_rate": 0.615385,
+        "predicted_approval_rate": 0.769231,
+        "mean_predicted_probability": 0.595701,
+        "balanced_accuracy": 0.8,
+        "approval_recall": 1.0,
+        "rejection_recall": 0.6
+      }
+    ],
+    "Education": [
+      {
+        "group": "Graduate",
+        "n": 480,
+        "actual_approval_rate": 0.708333,
+        "predicted_approval_rate": 0.827083,
+        "mean_predicted_probability": 0.709969,
+        "balanced_accuracy": 0.710714,
+        "approval_recall": 0.95,
+        "rejection_recall": 0.471429
+      },
+      {
+        "group": "Not Graduate",
+        "n": 134,
+        "actual_approval_rate": 0.61194,
+        "predicted_approval_rate": 0.738806,
+        "mean_predicted_probability": 0.649753,
+        "balanced_accuracy": 0.757974,
+        "approval_recall": 0.939024,
+        "rejection_recall": 0.576923
+      }
+    ],
+    "Property_Area": [
+      {
+        "group": "Rural",
+        "n": 179,
+        "actual_approval_rate": 0.614525,
+        "predicted_approval_rate": 0.782123,
+        "mean_predicted_probability": 0.645568,
+        "balanced_accuracy": 0.711858,
+        "approval_recall": 0.945455,
+        "rejection_recall": 0.478261
+      },
+      {
+        "group": "Semiurban",
+        "n": 233,
+        "actual_approval_rate": 0.76824,
+        "predicted_approval_rate": 0.849785,
+        "mean_predicted_probability": 0.757046,
+        "balanced_accuracy": 0.727654,
+        "approval_recall": 0.955307,
+        "rejection_recall": 0.5
+      },
+      {
+        "group": "Urban",
+        "n": 202,
+        "actual_approval_rate": 0.658416,
+        "predicted_approval_rate": 0.782178,
+        "mean_predicted_probability": 0.67279,
+        "balanced_accuracy": 0.730794,
+        "approval_recall": 0.93985,
+        "rejection_recall": 0.521739
+      }
+    ]
+  },
+  "caveat": "This small public practice dataset is not representative of any real lending population. Slice metrics are an educational audit, not evidence of regulatory fairness or absence of bias."
+}
